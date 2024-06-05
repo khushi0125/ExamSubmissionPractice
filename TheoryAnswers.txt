@@ -1,0 +1,129 @@
+CFG Foundation Exam Theory Question Answers: Khushi Songra
+
+
+1.1. A primary key serves as a unique identifier for each row in a table: it ensures that each value in the primary key column is unique and not null. For example, within an NHS database, there would be a table which contains patient information. Within that table, each individual patient's NHS number acts as a primary key. This means that no two individuals share the same NHS number, and every patient with a record must have a unique NHS number assigned to them.
+
+A foreign key establishes relationships between tables by linking a column in one table to the primary key column in another table. For example, in an NHS database, Table A may contain patient records where the NHS number is the primary key. Table B, which contains appointment records, may use the NHS number as a foreign key to link each appointment to the corresponding patient in Table A. (The primary key for Table B would likely be an appointment ID which uniquely identifies each appointment). 
+
+
+
+
+
+1.2. The finally block in Python exception handling is used to define statements that will always be executed, irrespective of whether an exception occurs or not. 
+
+For example: 
+
+def get_all_tasks():
+    tasks = []
+
+    try:
+        # Establish database connection
+        connection = _connect_to_db(db_name)
+        cursor = connection.cursor()
+
+        # SQL query to select all from tasks
+        query = "SELECT * FROM tasks"
+        cursor.execute(query)
+
+        # Fetch all tasks(rows)
+        result = cursor.fetchall()
+        # Map fetched tasks into list of dictionaries
+        tasks = _map_tasks(result)
+
+    # Handle connection error
+    except Exception:
+        raise DbConnectionError("Failed to read data from DB")
+
+    finally:
+        # Close cursor and database connections
+        if cursor:
+            cursor.close()
+        if connection:
+            connection.close()
+
+In this block of code, whether the connection is established and the tasks can be fetched or not, the finally block ensures that the cursor and database connection is closed.
+
+
+
+
+
+1.3. In Git, the commit command is used to make changes to a local repository while the push command (usually used subsequent to a commit command), makes those changes ("pushes" them) to a remote repository.
+
+
+
+
+
+1.4. In JS, undefined is a value that is assigned to variables that have been declared but not attributed a value. So undefined refers to the absence of value due to non-assignment. A variable remains undefined unless and until it is explicitly assigned a value. 
+
+On the other hand, null represents intentional absence of any value. Null does not mean '0' but rather, nothing: it is the absence of any value at all.
+
+
+
+
+
+1.5. PokeAPI: This Pokemon API provides data about Pokemons, their different moves, abilities, their types and species. Users can retrieve information about Pokemon such as their name, their stats, their abilities and their evolution.  
+
+OpenWeatherMapAPI: This weather API provides weather and forecast data for different locations across the world. Users can retrieve weather conditions, the temperature, wind speed and even meteorological information like sunrise times and moon phases. This API also provides historical weather data so that users can see what the weather was in the past as well as the future. 
+
+
+
+
+
+1.6. A Product Owner in Agile development acts as the bridge between stakeholders and the development team and so they are responsible for representing client interests and guiding the development team towards delivering value in alignment with project goals. Tasks they have include: 
+
+1) Ensuring alignment and product vision is upheld: Product owners must essentially keep the product vision in mind all the time so as to ensure that it is upheld. They must also keep in mind customer needs and alignment with business goals throughout the development process.
+
+2) Facilitate communication: Product owners facilitate communication as well as collaboration between the development team and stakeholders to guarantee a shared understanding of the requirements and goals of development. 
+
+3) Establish requirements: Through engaging with the stakeholders, product owners must establish the requirements and prioritise features for development.
+
+4) Feedback: Product owners gather feedback from both stakeholders as well as reviewers of a product in order to build on the feedback with the development team and ensure that the product can be used with ease and efficiency. 
+
+
+
+
+
+1.7. An inner join returns rows from two tables that satisfy the join condition. For example, in an NHS database, there are 2 tables. Table A (Patients) contains patient information. Table B (Appointments) contains appointment information. An inner join could be used to return patient details (patient ID and name) along with appointment information (appointment date, appointment time, appointment doctor etc.)  for patients who have scheduled appointments.
+
+Example query:
+SELECT Patients.ID, Patients.Name, Appointments.Date, Appointments.Doctor_ID, Appointments.Time
+FROM Patients
+INNER JOIN Appointments on Patients.ID = Appointments.Patient_ID
+
+
+A right join/right outer join returns all rows from the right table which match the rows from the left table based on the join condition.
+
+Example query: 
+SELECT Patients.ID, Patients.Name, Appointments.Date, Appointments.Doctor_ID, 
+FROM Patients 
+RIGHT JOIN Appointments ON Patients.ID = Appointments.Patient_ID
+
+
+
+
+
+1.8. In python, mutable data types include those whose values can be changed after they are created. An example of a mutable data type in Python is a list. Once a list is created, its elements can be changed using methods like .pop() and .append(). 
+
+Immutable data types on the other hand, include those whose values are fixed and cannot be changed after they are created. An example of an immutable data type in Python is a string. Once a string is created, its characters cannot be modified. If you try to change a string, Python will essentially create a new string object with that updated value instead of changing the original string so that you are left with 2 separate string objects. 
+
+
+
+
+
+1.9. Synchronous functions execute tasks sequentially, meaning that when you call a synchronous function, it completes each task in the order they are written. With synchronous functions, the program essentially waits until each task is finished before moving onto the next one. 
+
+On the other hand, asynchronous functions do not execute tasks in any sequential, chronological manner. Rather, tasks are executed concurrently. With asynchronous functions, the program does not have to wait before each task is finished to proceed onto the next task. 
+
+
+
+
+
+1.10. Four differences between agile and waterfall software development methodologies: 
+
+1) Agile methodology follows an incremental, iterative approach characterised by a cycle of development, test and feedback, architecture and design followed by more development, test and feedback, architecture and design. There is no strict pre-defined order and thus, agile allows for a lot a flexibility. On the other hand, the waterfall methodology follows a sequential, linear approach in the sense that progress of the project is planned to follow a strict order.
+
+2) Agile methodologies prioritise and emphasise customer collaboration for continuous feedback whereas waterfall methodologies have limited customer involvement in comparison. Feedback is gathered in later stages in the waterfall methodology whereas feedback is gathered throughout in agile methodology.
+
+3) Agile methodologies mitigates risks continuously by working on the project in short iterations. On the other hand, waterfall methodologies address any risks primary at the beginning of the project and this can lead to unforeseen risks emerging later on in the project.
+
+4) Changes can easily be accommodated in the agile methodology because agile methodology uses short iterations. Any desired changes can simply be worked on at the beginning of each iteration. These changes appear as a result of new feedback and adjusting priorities based on changing needs. On the other hand, the waterfall methodology is a lot less flexible when it comes to dealing with changes. This is because the project requirements are defined strictly in the beginning. Changes are thus difficult to implement as there was a set goal in mind. Changes are usually made as a result of any problems with the product and not so much because they were planned from the outset. Thus changes pose problems within waterfall methodologies.
