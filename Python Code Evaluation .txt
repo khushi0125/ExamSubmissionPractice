@@ -1,0 +1,49 @@
+Python Code Evaluation: 
+
+1. The 6 errors in the code: 
+
+
+(1) The if statement is missing a ':' 
+The correct code would be: 
+if num > max_num:
+
+
+(2) The if num < max_num condition is incorrect and uses the wrong operator.
+In order to find the largest number, it should be: 
+if num > max_num:
+
+(3) The numbers variable should be initialised as a list of numbers using square brackets as opposed to a string. The student should not have used " ". The correct code would be: 
+numbers = [3, 7, 9, 2, 5]
+
+
+(4) There is a missing comma in the print statement. Rather than just "print("Maximum number is:" find_max(numbers)" it should be print("Maximum number is:", find_max(numbers)) with a comma between the string and the function.
+
+
+(5) There is a missing bracket at the end of the print statement. The correct code would be: 
+print("Maximum number is:", find_max(numbers))
+
+
+(6) The return statement is incorrectly indented. The code should be indented as follows: 
+
+def find_max(numbers):
+    max_num = numbers[0]
+    
+    for num in numbers:
+        if num > max_num:
+            max_num = num
+    
+    return max_num
+
+numbers = [3, 7, 2, 9, 5]
+
+print("Maximum number is:", find_max(numbers))
+
+
+
+2. Constructive feedback
+Ensure correct and consistent indenting in your code- though most IDEs provide settings which allow automatic formatting, do some practice with these settings off. Or if you're unsure of where indenting is required, use these settings and make a note of the indentation patterns so you can incorporate these into your work. 
+
+Double check any syntax errors at the line of each code or every 2 lines and then once more when you're done writing the code. This will help you catch out errors like missing colons :. Also, run your code with print functions to ensure that you have used the correct operators and you are getting the expected outcome- in this code there was a mistake where you used < instead of >. Also don't forget your brackets! 
+
+Finally, when creating functions, decide what you want the parameter to be. In this case, since you decided the parameters would be numbers, you should then have ensured that your numbers variable which you inputted as an argument are actually a list of numbers as opposed to a string. 
+
